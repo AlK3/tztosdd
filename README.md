@@ -8,6 +8,7 @@
 
 ##### Команды для развертывания приложения
 ```
+sudo chmod -R ugo+rw src
 sudo docker-compose up -d
 ```
 
