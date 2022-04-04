@@ -1,0 +1,53 @@
+[
+    {
+        "id": "uuid()",
+        "name": "Пользователи",
+        "alias": "/users",
+        "childrens": [
+            {
+                "id": "uuid()",
+                "name": "Создание",
+                "alias": "/users/create",
+                "childrens": []
+            },
+            {
+                "id": "uuid()",
+                "name": "Список",
+                "alias": "/users/list",
+                "childrens": [
+                    {
+                        "id": "uuid()",
+                        "name": "Активные",
+                        "alias": "/users/list/active",
+                        "childrens": []
+                    },
+                    {
+                        "id": "uuid()",
+                        "name": "Удаленные",
+                        "alias": "/users/list/deleted",
+                        "childrens": []
+                    }
+                ]
+            },
+            {
+                "id": "uuid()",
+                "name": "Поиск",
+                "alias": "/users/search",
+                "childrens": []
+            }
+        ]
+    },
+    {
+        "id": "uuid()",
+        "name": "Заявки",
+        "alias": "/requests",
+        "childrens": [
+            {
+                "id": "uuid()",
+                "name": "Заявки на подключение",
+                "alias": "/requests/connecting",
+                "childrens": []
+            }
+        ]
+    }
+]

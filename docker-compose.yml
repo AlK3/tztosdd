@@ -1,0 +1,32 @@
+version: '3'
+services:
+  db:
+    image: postgres:14
+    restart: always
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    ports:
+      - 5432:5432
+  php:
+    build: .docker
+    restart: always
+    environment:
+      - DB_HOST=db
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - ./src:/var/www/html
+  web:
+    image: nginx:latest
+    volumes:
+      - ./.docker/nginx/conf.d:/etc/nginx/conf.d
+      - ./src:/var/www/html
+    ports:
+      - 80:80
+    restart: always
+    depends_on:
+      - php
+      - db
